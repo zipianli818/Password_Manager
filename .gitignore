@@ -1,0 +1,8 @@
+# Editor settings
+.idea/
+.vs/
+.vscode/
+
+# Outputs
+bin/
+obj/
