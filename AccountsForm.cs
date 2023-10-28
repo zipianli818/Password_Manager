@@ -49,7 +49,7 @@ namespace Password_Manager
 
         private void addFolderButton_Click(object sender, EventArgs e)
         {
-            TextInputModal.ShowModal("Add Folder", (string text) =>
+            TextInputModal.ShowModal("Add Folder", true, (string text) =>
             {
                 var folderButton = new Button
                 {
@@ -75,7 +75,7 @@ namespace Password_Manager
                     folderButton.Dock = DockStyle.Top;
 
                 folderFlowPanel.Controls.Add(folderButton);
-            }, null);
+            });
         }
     }
 }

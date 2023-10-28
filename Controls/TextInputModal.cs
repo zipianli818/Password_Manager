@@ -17,37 +17,43 @@ namespace Password_Manager.Controls
             InitializeComponent();
         }
 
-        public static void ShowModal(string title, Action<string> onConfirm)
-        {
-            ShowModal(title, onConfirm, null);
-        }
-
-        public static void ShowModal(string title, Action<string> onConfirm, Action? onCancel)
+        public static void ShowModal(string title, bool exclusive, Action<string> onConfirm, Action? onCancel = null)
         {
             var modal = new TextInputModal();
             modal.modalLabel.Text = title;
             modal.Text = title;
             modal.StartPosition = FormStartPosition.CenterParent;
 
+            // Note(Pete): This is created as a delegate variable so that we can remove it from the FormClosed event when we press confirm.
+            FormClosedEventHandler formClosedEventHandler = (object? _, FormClosedEventArgs _) =>
+            {
+                onCancel?.Invoke();
+            };
+
             modal.confirmButton.Click += (object? _, EventArgs _) =>
             {
                 // Don't allow empty or whitespace strings as folder names.
-                if (string.IsNullOrWhiteSpace( modal.nameTextBox.Text))
+                if (string.IsNullOrWhiteSpace(modal.nameTextBox.Text))
                 {
                     MessageBox.Show("Cannot have a folder without a name");
                     return;
                 }
                 onConfirm.Invoke(modal.nameTextBox.Text);
+                modal.FormClosed -= formClosedEventHandler;
                 modal.Close();
             };
 
             modal.cancelButton.Click += (object? _, EventArgs _) =>
             {
-                onCancel?.Invoke();
                 modal.Close();
             };
 
-            modal.ShowDialog();
+            modal.FormClosed += formClosedEventHandler;
+
+            if (exclusive)
+                modal.ShowDialog();
+            else
+                modal.Show();
         }
     }
 }
