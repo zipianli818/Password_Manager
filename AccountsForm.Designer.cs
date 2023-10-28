@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             splitContainer1 = new SplitContainer();
             panel2 = new Panel();
-            addFoldersButton = new Button();
+            addFolderButton = new Button();
             panel3 = new Panel();
             foldersLabel = new Label();
             folderFlowPanel = new FlowLayoutPanel();
@@ -44,6 +45,8 @@
             panel4 = new Panel();
             addAccountButton = new Button();
             searchTextbox = new TextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            item1ToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -53,6 +56,7 @@
             folderFlowPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -78,7 +82,7 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(addFoldersButton);
+            panel2.Controls.Add(addFolderButton);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(panel1);
             panel2.Dock = DockStyle.Fill;
@@ -88,16 +92,17 @@
             panel2.Size = new Size(220, 450);
             panel2.TabIndex = 0;
             // 
-            // addFoldersButton
+            // addFolderButton
             // 
-            addFoldersButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            addFoldersButton.FlatStyle = FlatStyle.Flat;
-            addFoldersButton.Location = new Point(-1, 417);
-            addFoldersButton.Name = "addFoldersButton";
-            addFoldersButton.Size = new Size(220, 32);
-            addFoldersButton.TabIndex = 3;
-            addFoldersButton.Text = "Add New Folder +";
-            addFoldersButton.UseVisualStyleBackColor = true;
+            addFolderButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            addFolderButton.FlatStyle = FlatStyle.Flat;
+            addFolderButton.Location = new Point(-1, 417);
+            addFolderButton.Name = "addFolderButton";
+            addFolderButton.Size = new Size(220, 32);
+            addFolderButton.TabIndex = 3;
+            addFolderButton.Text = "Add New Folder +";
+            addFolderButton.UseVisualStyleBackColor = true;
+            addFolderButton.Click += addFolderButton_Click;
             // 
             // panel3
             // 
@@ -208,13 +213,14 @@
             // 
             accountRow1.AutoSize = true;
             accountRow1.BackColor = SystemColors.AppWorkspace;
-            accountRow1.Location = new Point(-30, 147);
+            accountRow1.Location = new Point(2, 93);
             accountRow1.Name = "accountRow1";
-            accountRow1.Size = new Size(656, 41);
+            accountRow1.Size = new Size(574, 41);
             accountRow1.TabIndex = 1;
             // 
             // panel4
             // 
+            panel4.ContextMenuStrip = contextMenuStrip1;
             panel4.Controls.Add(addAccountButton);
             panel4.Controls.Add(searchTextbox);
             panel4.Location = new Point(2, 0);
@@ -244,6 +250,18 @@
             searchTextbox.Size = new Size(320, 23);
             searchTextbox.TabIndex = 0;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { item1ToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 48);
+            // 
+            // item1ToolStripMenuItem
+            // 
+            item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
+            item1ToolStripMenuItem.Size = new Size(180, 22);
+            item1ToolStripMenuItem.Text = "Item 1";
+            // 
             // AccountsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -266,6 +284,7 @@
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -279,7 +298,7 @@
         private Panel panel2;
         private Panel panel3;
         private FlowLayoutPanel folderFlowPanel;
-        private Button addFoldersButton;
+        private Button addFolderButton;
         private Label foldersLabel;
         private Panel panel4;
         private TextBox searchTextbox;
@@ -287,5 +306,7 @@
         private Button button1;
         private Button button2;
         private Controls.AccountRow accountRow1;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem item1ToolStripMenuItem;
     }
 }

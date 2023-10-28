@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Password_Manager.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,37 @@ namespace Password_Manager
         private void folderFlowPanel_Layout(object sender, LayoutEventArgs e)
         {
             resizeFolderPanelContents();
+        }
+
+        private void addFolderButton_Click(object sender, EventArgs e)
+        {
+            TextInputModal.ShowModal("Add Folder", (string text) =>
+            {
+                var folderButton = new Button
+                {
+                    FlatStyle = FlatStyle.Flat,
+                    Height = 32,
+                    Margin = new Padding(0),
+                    Text = text
+                };
+
+                // Add context menu to button
+                var buttonContextMenu = new ContextMenuStrip();
+                buttonContextMenu.Items.Add("Delete Folder");
+                buttonContextMenu.Items[0].Click += (object? sender, EventArgs e) =>
+                {
+                    folderFlowPanel.Controls.Remove(folderButton);
+                };
+
+                folderButton.ContextMenuStrip = buttonContextMenu;
+
+                // Note(Pete): All controls apart from the first control must be docked to the top so that they will
+                // copy the width of the topmost control. Refer to resizeFolderPanelContents for more details.
+                if (folderFlowPanel.Controls.Count != 0)
+                    folderButton.Dock = DockStyle.Top;
+
+                folderFlowPanel.Controls.Add(folderButton);
+            }, null);
         }
     }
 }
