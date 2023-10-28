@@ -1,3 +1,4 @@
+using Password_Manager.Models;
 using System.ComponentModel;
 
 namespace Password_Manager;
@@ -14,9 +15,9 @@ public partial class MainForm : Form
     {
         base.OnLoad(e);
         dbContext = new DataContext();
-        
+
         // Note(Pete): Uncomment this if you need to update the database schema.
-        // dbContext.Database.EnsureDeleted();
+        dbContext.Database.EnsureDeleted();
         dbContext.Database.EnsureCreated();
     }
 
