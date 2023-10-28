@@ -18,5 +18,6 @@ public class Account
     public string Address {  get; set; } = string.Empty;
     public Folder? Folder { get; set; }
     public User User { get; set; }
+    public bool Binned { get; set; }
 
 }

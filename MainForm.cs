@@ -17,8 +17,11 @@ public partial class MainForm : Form
         dbContext = new DataContext();
 
         // Note(Pete): Uncomment this if you need to update the database schema.
-        dbContext.Database.EnsureDeleted();
+        //dbContext.Database.EnsureDeleted();
         dbContext.Database.EnsureCreated();
+
+        var accountsForm = new AccountsForm();
+        accountsForm.Show();
     }
 
     protected override void OnClosing(CancelEventArgs e)
