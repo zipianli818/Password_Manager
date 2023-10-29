@@ -35,25 +35,22 @@
             panel3 = new Panel();
             foldersLabel = new Label();
             folderFlowPanel = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
             panel1 = new Panel();
             binButton = new Button();
             allAccountsButton = new Button();
             label1 = new Label();
-            accountRow1 = new Controls.AccountRow();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel4 = new Panel();
-            addAccountButton = new Button();
-            searchTextbox = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             item1ToolStripMenuItem = new ToolStripMenuItem();
+            addAccountButton = new Button();
+            searchTextbox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            folderFlowPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -73,7 +70,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(accountRow1);
+            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
             splitContainer1.Panel2.Controls.Add(panel4);
             splitContainer1.Size = new Size(800, 450);
             splitContainer1.SplitterDistance = 220;
@@ -129,8 +126,6 @@
             folderFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             folderFlowPanel.AutoScroll = true;
             folderFlowPanel.BackColor = Color.White;
-            folderFlowPanel.Controls.Add(button1);
-            folderFlowPanel.Controls.Add(button2);
             folderFlowPanel.FlowDirection = FlowDirection.TopDown;
             folderFlowPanel.Location = new Point(0, 25);
             folderFlowPanel.Margin = new Padding(0, 3, 3, 3);
@@ -139,29 +134,6 @@
             folderFlowPanel.TabIndex = 1;
             folderFlowPanel.WrapContents = false;
             folderFlowPanel.Layout += folderFlowPanel_Layout;
-            // 
-            // button1
-            // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(221, 32);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Dock = DockStyle.Top;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(0, 32);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(221, 32);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -209,14 +181,14 @@
             label1.TabIndex = 0;
             label1.Text = "Password Manager";
             // 
-            // accountRow1
+            // flowLayoutPanel1
             // 
-            accountRow1.AutoSize = true;
-            accountRow1.BackColor = SystemColors.AppWorkspace;
-            accountRow1.Location = new Point(2, 93);
-            accountRow1.Name = "accountRow1";
-            accountRow1.Size = new Size(574, 41);
-            accountRow1.TabIndex = 1;
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.BackColor = Color.White;
+            flowLayoutPanel1.Location = new Point(0, 93);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(576, 357);
+            flowLayoutPanel1.TabIndex = 1;
             // 
             // panel4
             // 
@@ -227,6 +199,18 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(574, 96);
             panel4.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { item1ToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(108, 26);
+            // 
+            // item1ToolStripMenuItem
+            // 
+            item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
+            item1ToolStripMenuItem.Size = new Size(107, 22);
+            item1ToolStripMenuItem.Text = "Item 1";
             // 
             // addAccountButton
             // 
@@ -250,18 +234,6 @@
             searchTextbox.Size = new Size(320, 23);
             searchTextbox.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { item1ToolStripMenuItem });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 48);
-            // 
-            // item1ToolStripMenuItem
-            // 
-            item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
-            item1ToolStripMenuItem.Size = new Size(180, 22);
-            item1ToolStripMenuItem.Text = "Item 1";
-            // 
             // AccountsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -273,13 +245,11 @@
             Text = "Password Manager";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
-            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            folderFlowPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
@@ -303,10 +273,8 @@
         private Panel panel4;
         private TextBox searchTextbox;
         private Button addAccountButton;
-        private Button button1;
-        private Button button2;
-        private Controls.AccountRow accountRow1;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem item1ToolStripMenuItem;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

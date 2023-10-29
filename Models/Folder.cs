@@ -14,4 +14,18 @@ public class Folder
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public User User { get; set; }
+
+    public Folder() { } 
+    public Folder(string name, User user)
+    {
+        Name = name;
+        User = user;
+    }
+
+    public Folder(int id, string name, User user) 
+    {
+        Id = id;
+        Name = name;
+        User = user;
+    }
 }
