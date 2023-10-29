@@ -18,7 +18,7 @@ public partial class MainForm : Form
         _dbContext = new DataContext();
 
         // Note(Pete): Uncomment this if you need to update the database schema.
-        //dbContext.Database.EnsureDeleted();
+        _dbContext.Database.EnsureDeleted();
         _dbContext.Database.EnsureCreated();
 
         // Debug
@@ -82,5 +82,10 @@ public partial class MainForm : Form
         var accountsForm = new AccountsForm(user);
         accountsForm.Show(this);
         Hide();
+    }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+
     }
 }

@@ -45,27 +45,30 @@ partial class MainForm
         label1.Anchor = AnchorStyles.None;
         label1.AutoSize = true;
         label1.Font = new Font("Consolas", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-        label1.Location = new Point(223, 83);
+        label1.Location = new Point(319, 138);
+        label1.Margin = new Padding(4, 0, 4, 0);
         label1.Name = "label1";
-        label1.Size = new Size(322, 41);
+        label1.Size = new Size(491, 62);
         label1.TabIndex = 0;
         label1.Text = "Password Manager";
         // 
         // emailTextBox
         // 
         emailTextBox.Anchor = AnchorStyles.None;
-        emailTextBox.Location = new Point(301, 221);
+        emailTextBox.Location = new Point(430, 368);
+        emailTextBox.Margin = new Padding(4, 5, 4, 5);
         emailTextBox.Name = "emailTextBox";
         emailTextBox.PlaceholderText = "Email";
-        emailTextBox.Size = new Size(188, 23);
+        emailTextBox.Size = new Size(267, 31);
         emailTextBox.TabIndex = 1;
         // 
         // signInButton
         // 
         signInButton.Anchor = AnchorStyles.None;
-        signInButton.Location = new Point(347, 299);
+        signInButton.Location = new Point(496, 498);
+        signInButton.Margin = new Padding(4, 5, 4, 5);
         signInButton.Name = "signInButton";
-        signInButton.Size = new Size(75, 23);
+        signInButton.Size = new Size(107, 38);
         signInButton.TabIndex = 3;
         signInButton.Text = "Sign In";
         signInButton.UseVisualStyleBackColor = true;
@@ -75,18 +78,20 @@ partial class MainForm
         // 
         label2.Anchor = AnchorStyles.None;
         label2.AutoSize = true;
-        label2.Location = new Point(379, 325);
+        label2.Location = new Point(541, 542);
+        label2.Margin = new Padding(4, 0, 4, 0);
         label2.Name = "label2";
-        label2.Size = new Size(18, 15);
+        label2.Size = new Size(29, 25);
         label2.TabIndex = 4;
         label2.Text = "or";
         // 
         // createAccountButton
         // 
         createAccountButton.Anchor = AnchorStyles.None;
-        createAccountButton.Location = new Point(324, 343);
+        createAccountButton.Location = new Point(463, 572);
+        createAccountButton.Margin = new Padding(4, 5, 4, 5);
         createAccountButton.Name = "createAccountButton";
-        createAccountButton.Size = new Size(125, 23);
+        createAccountButton.Size = new Size(179, 38);
         createAccountButton.TabIndex = 4;
         createAccountButton.Text = "Create Account";
         createAccountButton.UseVisualStyleBackColor = true;
@@ -95,19 +100,21 @@ partial class MainForm
         // passwordTextBox
         // 
         passwordTextBox.Anchor = AnchorStyles.None;
-        passwordTextBox.Location = new Point(301, 258);
+        passwordTextBox.Location = new Point(430, 430);
+        passwordTextBox.Margin = new Padding(4, 5, 4, 5);
         passwordTextBox.Name = "passwordTextBox";
         passwordTextBox.PasswordChar = '●';
-        passwordTextBox.Size = new Size(188, 23);
+        passwordTextBox.Size = new Size(267, 31);
         passwordTextBox.TabIndex = 2;
         // 
         // label3
         // 
         label3.Anchor = AnchorStyles.None;
         label3.AutoSize = true;
-        label3.Location = new Point(229, 261);
+        label3.Location = new Point(327, 435);
+        label3.Margin = new Padding(4, 0, 4, 0);
         label3.Name = "label3";
-        label3.Size = new Size(57, 15);
+        label3.Size = new Size(87, 25);
         label3.TabIndex = 7;
         label3.Text = "Password";
         // 
@@ -115,9 +122,10 @@ partial class MainForm
         // 
         label4.Anchor = AnchorStyles.None;
         label4.AutoSize = true;
-        label4.Location = new Point(250, 224);
+        label4.Location = new Point(357, 373);
+        label4.Margin = new Padding(4, 0, 4, 0);
         label4.Name = "label4";
-        label4.Size = new Size(36, 15);
+        label4.Size = new Size(54, 25);
         label4.TabIndex = 8;
         label4.Text = "Email";
         // 
@@ -134,19 +142,22 @@ partial class MainForm
         panel1.Controls.Add(emailTextBox);
         panel1.Controls.Add(passwordTextBox);
         panel1.Location = new Point(0, 0);
+        panel1.Margin = new Padding(4, 5, 4, 5);
         panel1.Name = "panel1";
-        panel1.Size = new Size(800, 450);
+        panel1.Size = new Size(1143, 750);
         panel1.TabIndex = 9;
         // 
         // MainForm
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(10F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(1143, 750);
         Controls.Add(panel1);
+        Margin = new Padding(4, 5, 4, 5);
         Name = "MainForm";
         Text = "Password Manager";
+        Load += MainForm_Load;
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
         ResumeLayout(false);

@@ -60,6 +60,43 @@ namespace Password_Manager
         {
             // Generate a value for the passwordTextBox here.
             // Use includeNumberCheckbox.Checked and includeSpecialCharsCheckbox.Checked to determine how to generate the password.
+
+            RandomNumberGenerator rng = new RandomNumberGenerator();
+
+            bool includeNumbers = includeNumberCheckbox.Checked;
+            bool includeSpecialChars = includeSpecialCharsCheckbox.Checked;
+
+            StringBuilder password = new StringBuilder();
+            password.Append(rng.RandomString(10, true)); // Generate a random lowercase string.
+
+            if (includeNumbers)
+            {
+                password.Append(rng.RandomNumber(1000, 10000)); // Generate a random 4-digit number.
+            }
+
+            if (includeSpecialChars)
+            {
+                password.Append(rng.RandomCharacter()); // Add a random special character.
+            }
+
+            password.Append(rng.RandomString(1, false).First()); // Add an uppercase letter.
+
+            // Set the generated password in the passwordTextBox.
+            passwordTextBox.Text = password.ToString();
+
+            MessageBox.Show("Password: " + passwordTextBox + " " +
+                            "have been generated!");
+
+        }
+
+        private void PasswordsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void accountNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         //private void button3_Click(object sender, EventArgs e)
