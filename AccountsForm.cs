@@ -153,6 +153,12 @@ namespace Password_Manager
             }
         }
 
+        private void FilterAccountRows(Predicate<Account> visibilityPredicate)
+        {
+            foreach (AccountRow accountRow in accountFlowPanel.Controls)
+                accountRow.Visible = visibilityPredicate.Invoke(accountRow.Account);
+        }
+
 
         // Events
 
@@ -193,18 +199,14 @@ namespace Password_Manager
         private void allAccountsButton_Click(object sender, EventArgs e)
         {
             _visibilityMode = VisibilityMode.All;
-            foreach (AccountRow accountRow in accountFlowPanel.Controls)
-                accountRow.Visible = !accountRow.Account.Binned;
-
+            FilterAccountRows((account) => !account.Binned);
             FixAccountRowLayout();
         }
 
         private void binButton_Click(object sender, EventArgs e)
         {
             _visibilityMode = VisibilityMode.Binned;
-            foreach (AccountRow accountRow in accountFlowPanel.Controls)
-                accountRow.Visible = accountRow.Account.Binned;
-
+            FilterAccountRows((account) => account.Binned);
             FixAccountRowLayout();
         }
 
@@ -214,19 +216,18 @@ namespace Password_Manager
             {
 
                 case VisibilityMode.All:
-                    foreach (AccountRow accountRow in accountFlowPanel.Controls)
-                        accountRow.Visible = !accountRow.Account.Binned && accountRow.Account.Address.Contains(searchTextbox.Text);
+                    FilterAccountRows((account) => !account.Binned && account.Address.Contains(searchTextbox.Text));
                     break;
                 case VisibilityMode.Binned:
-                    foreach (AccountRow accountRow in accountFlowPanel.Controls)
-                        accountRow.Visible = accountRow.Account.Binned && accountRow.Account.Address.Contains(searchTextbox.Text);
+                    FilterAccountRows((account) => account.Binned && account.Address.Contains(searchTextbox.Text));
                     break;
                 case VisibilityMode.Folder:
                     if (_activeFolder is not null)
-                        foreach (AccountRow accountRow in accountFlowPanel.Controls)
-                            if (!accountRow.Account.Binned && accountRow.Account.Folder is not null)
-                                accountRow.Visible = accountRow.Account.Folder.Id == _activeFolder.Id &&
-                                        accountRow.Account.Address.Contains(searchTextbox.Text);
+                        FilterAccountRows((account) => {
+                            if (account.Binned) return false;
+                            if (account.Folder is null) return false;
+                            return account.Folder.Id == _activeFolder.Id && !account.Binned && account.Address.Contains(searchTextbox.Text);
+                            });
                     break;
             }
 
