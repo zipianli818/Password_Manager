@@ -256,14 +256,14 @@ namespace Password_Manager
 
         private void searchTextbox_TextChanged(object sender, EventArgs e)
         {
+            var searchText = searchTextbox.Text.ToLower();
             switch (_visibilityMode)
             {
-
                 case VisibilityMode.All:
-                    FilterAccountRows((account) => !account.Binned && account.Address.Contains(searchTextbox.Text));
+                    FilterAccountRows((account) => !account.Binned && account.Address.ToLower().Contains(searchText));
                     break;
                 case VisibilityMode.Binned:
-                    FilterAccountRows((account) => account.Binned && account.Address.Contains(searchTextbox.Text));
+                    FilterAccountRows((account) => account.Binned && account.Address.ToLower().Contains(searchText));
                     break;
                 case VisibilityMode.Folder:
                     if (_activeFolder is not null)
@@ -271,7 +271,7 @@ namespace Password_Manager
                         {
                             if (account.Binned) return false;
                             if (account.Folder is null) return false;
-                            return account.Folder.Id == _activeFolder.Id && !account.Binned && account.Address.Contains(searchTextbox.Text);
+                            return account.Folder.Id == _activeFolder.Id && !account.Binned && account.Address.ToLower().Contains(searchText);
                         });
                     break;
             }
