@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-class RandomNumber
+/*class RandomNumber
 {
     static void Main(string[] args)
     {
@@ -21,7 +21,7 @@ class RandomNumber
         string pass = generator.RandomPassword();
         Console.WriteLine($"Your Random Password is: {pass}");
     }
-}
+}*/
 
 public class RandomNumberGenerator
 {
