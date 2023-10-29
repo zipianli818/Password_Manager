@@ -60,6 +60,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(usernameLabel);
             panel3.Controls.Add(siteNameLabel);
@@ -70,6 +71,7 @@
             // 
             // panel4
             // 
+            panel4.BackColor = Color.Transparent;
             panel4.Controls.Add(copiedToClipboardLabel);
             panel4.Dock = DockStyle.Right;
             panel4.Location = new Point(406, 0);
@@ -132,6 +134,7 @@
             deleteButton.Size = new Size(32, 49);
             deleteButton.TabIndex = 2;
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // editButton
             // 
@@ -140,7 +143,7 @@
             editButton.FlatStyle = FlatStyle.Flat;
             editButton.ForeColor = Color.Transparent;
             editButton.Image = Properties.Resources.edit;
-            editButton.Location = new Point(64, 0);
+            editButton.Location = new Point(67, -1);
             editButton.Name = "editButton";
             editButton.Size = new Size(32, 49);
             editButton.TabIndex = 1;

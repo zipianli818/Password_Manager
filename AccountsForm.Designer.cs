@@ -39,7 +39,7 @@
             binButton = new Button();
             allAccountsButton = new Button();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            accountFlowPanel = new FlowLayoutPanel();
             panel4 = new Panel();
             contextMenuStrip1 = new ContextMenuStrip(components);
             item1ToolStripMenuItem = new ToolStripMenuItem();
@@ -70,7 +70,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
+            splitContainer1.Panel2.Controls.Add(accountFlowPanel);
             splitContainer1.Panel2.Controls.Add(panel4);
             splitContainer1.Size = new Size(800, 450);
             splitContainer1.SplitterDistance = 220;
@@ -157,6 +157,7 @@
             binButton.TabIndex = 2;
             binButton.Text = "Bin";
             binButton.UseVisualStyleBackColor = true;
+            binButton.Click += binButton_Click;
             // 
             // allAccountsButton
             // 
@@ -168,6 +169,7 @@
             allAccountsButton.TabIndex = 1;
             allAccountsButton.Text = "All";
             allAccountsButton.UseVisualStyleBackColor = true;
+            allAccountsButton.Click += allAccountsButton_Click;
             // 
             // label1
             // 
@@ -181,14 +183,17 @@
             label1.TabIndex = 0;
             label1.Text = "Password Manager";
             // 
-            // flowLayoutPanel1
+            // accountFlowPanel
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.BackColor = Color.White;
-            flowLayoutPanel1.Location = new Point(0, 93);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(576, 357);
-            flowLayoutPanel1.TabIndex = 1;
+            accountFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            accountFlowPanel.BackColor = Color.White;
+            accountFlowPanel.BorderStyle = BorderStyle.FixedSingle;
+            accountFlowPanel.FlowDirection = FlowDirection.TopDown;
+            accountFlowPanel.Location = new Point(0, 93);
+            accountFlowPanel.Name = "accountFlowPanel";
+            accountFlowPanel.Size = new Size(576, 357);
+            accountFlowPanel.TabIndex = 1;
+            accountFlowPanel.Layout += accountFlowPanel_Layout;
             // 
             // panel4
             // 
@@ -222,6 +227,7 @@
             addAccountButton.TabIndex = 3;
             addAccountButton.Text = "Add +";
             addAccountButton.UseVisualStyleBackColor = true;
+            addAccountButton.Click += addAccountButton_Click;
             // 
             // searchTextbox
             // 
@@ -233,6 +239,7 @@
             searchTextbox.PlaceholderText = "Search...";
             searchTextbox.Size = new Size(320, 23);
             searchTextbox.TabIndex = 0;
+            searchTextbox.TextChanged += searchTextbox_TextChanged;
             // 
             // AccountsForm
             // 
@@ -241,8 +248,10 @@
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
+            MinimumSize = new Size(700, 400);
             Name = "AccountsForm";
             Text = "Password Manager";
+            FormClosed += AccountsForm_FormClosed;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -275,6 +284,6 @@
         private Button addAccountButton;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem item1ToolStripMenuItem;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel accountFlowPanel;
     }
 }

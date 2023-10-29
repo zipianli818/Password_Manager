@@ -13,12 +13,21 @@ namespace Password_Manager.Controls;
 
 public partial class AccountRow : UserControl
 {
-
+    public delegate void onDeleteHandler();
+    public event onDeleteHandler OnDelete;
     public Account Account { get; set; }
 
     public AccountRow()
     {
         InitializeComponent();
+    }
+
+    public AccountRow(Account account)
+    {
+        InitializeComponent();
+        Account = account;
+        usernameLabel.Text = account.Username;
+        siteNameLabel.Text = account.Address;
     }
 
     private void copyButton_Click(object sender, EventArgs e)
@@ -35,5 +44,10 @@ public partial class AccountRow : UserControl
                 copiedToClipboardLabel.Visible = false;
             });
         });
+    }
+
+    private void deleteButton_Click(object sender, EventArgs e)
+    {
+        OnDelete.Invoke();
     }
 }
