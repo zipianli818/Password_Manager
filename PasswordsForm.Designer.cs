@@ -70,10 +70,10 @@
             includeNumberCheckbox.Anchor = AnchorStyles.None;
             includeNumberCheckbox.AutoSize = true;
             includeNumberCheckbox.Location = new Point(180, 238);
-            includeNumberCheckbox.Margin = new Padding(2, 2, 2, 2);
+            includeNumberCheckbox.Margin = new Padding(2);
             includeNumberCheckbox.Name = "includeNumberCheckbox";
             includeNumberCheckbox.Size = new Size(117, 19);
-            includeNumberCheckbox.TabIndex = 10;
+            includeNumberCheckbox.TabIndex = 4;
             includeNumberCheckbox.Text = "Include Numbers";
             includeNumberCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -82,10 +82,10 @@
             includeSpecialCharsCheckbox.Anchor = AnchorStyles.None;
             includeSpecialCharsCheckbox.AutoSize = true;
             includeSpecialCharsCheckbox.Location = new Point(341, 238);
-            includeSpecialCharsCheckbox.Margin = new Padding(2, 2, 2, 2);
+            includeSpecialCharsCheckbox.Margin = new Padding(2);
             includeSpecialCharsCheckbox.Name = "includeSpecialCharsCheckbox";
             includeSpecialCharsCheckbox.Size = new Size(164, 19);
-            includeSpecialCharsCheckbox.TabIndex = 11;
+            includeSpecialCharsCheckbox.TabIndex = 5;
             includeSpecialCharsCheckbox.Text = "Include Special Characters";
             includeSpecialCharsCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -93,38 +93,38 @@
             // 
             accountNameTextBox.Anchor = AnchorStyles.None;
             accountNameTextBox.Location = new Point(180, 101);
-            accountNameTextBox.Margin = new Padding(2, 2, 2, 2);
+            accountNameTextBox.Margin = new Padding(2);
             accountNameTextBox.Name = "accountNameTextBox";
             accountNameTextBox.Size = new Size(202, 23);
-            accountNameTextBox.TabIndex = 12;
+            accountNameTextBox.TabIndex = 1;
             accountNameTextBox.TextChanged += accountNameTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
             usernameTextBox.Anchor = AnchorStyles.None;
             usernameTextBox.Location = new Point(180, 150);
-            usernameTextBox.Margin = new Padding(2, 2, 2, 2);
+            usernameTextBox.Margin = new Padding(2);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(202, 23);
-            usernameTextBox.TabIndex = 13;
+            usernameTextBox.TabIndex = 2;
             // 
             // passwordTextBox
             // 
             passwordTextBox.Anchor = AnchorStyles.None;
             passwordTextBox.Location = new Point(180, 199);
-            passwordTextBox.Margin = new Padding(2, 2, 2, 2);
+            passwordTextBox.Margin = new Padding(2);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(202, 23);
-            passwordTextBox.TabIndex = 14;
+            passwordTextBox.TabIndex = 3;
             // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.None;
             saveButton.Location = new Point(285, 334);
-            saveButton.Margin = new Padding(2, 2, 2, 2);
+            saveButton.Margin = new Padding(2);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(78, 20);
-            saveButton.TabIndex = 17;
+            saveButton.TabIndex = 8;
             saveButton.Text = "Save";
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += saveButton_Click;
@@ -144,10 +144,10 @@
             // 
             cancelButton.Anchor = AnchorStyles.None;
             cancelButton.Location = new Point(173, 334);
-            cancelButton.Margin = new Padding(2, 2, 2, 2);
+            cancelButton.Margin = new Padding(2);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(78, 20);
-            cancelButton.TabIndex = 19;
+            cancelButton.TabIndex = 9;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = true;
             cancelButton.Click += cancelButton_Click;
@@ -156,10 +156,10 @@
             // 
             generatePasswordButton.Anchor = AnchorStyles.None;
             generatePasswordButton.Location = new Point(404, 202);
-            generatePasswordButton.Margin = new Padding(2, 2, 2, 2);
+            generatePasswordButton.Margin = new Padding(2);
             generatePasswordButton.Name = "generatePasswordButton";
             generatePasswordButton.Size = new Size(120, 20);
-            generatePasswordButton.TabIndex = 20;
+            generatePasswordButton.TabIndex = 6;
             generatePasswordButton.Text = "Generate Password";
             generatePasswordButton.UseVisualStyleBackColor = true;
             generatePasswordButton.Click += generatePasswordButton_Click;
@@ -171,7 +171,7 @@
             folderComboBox.Location = new Point(173, 288);
             folderComboBox.Name = "folderComboBox";
             folderComboBox.Size = new Size(121, 23);
-            folderComboBox.TabIndex = 21;
+            folderComboBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -202,7 +202,7 @@
             Controls.Add(includeNumberCheckbox);
             Controls.Add(label5);
             Controls.Add(label4);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "PasswordsForm";
             Text = "Password Manager";
             Load += PasswordsForm_Load;
