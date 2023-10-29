@@ -250,11 +250,12 @@ namespace Password_Manager
                     break;
                 case VisibilityMode.Folder:
                     if (_activeFolder is not null)
-                        FilterAccountRows((account) => {
+                        FilterAccountRows((account) =>
+                        {
                             if (account.Binned) return false;
                             if (account.Folder is null) return false;
                             return account.Folder.Id == _activeFolder.Id && !account.Binned && account.Address.Contains(searchTextbox.Text);
-                            });
+                        });
                     break;
             }
 
@@ -266,6 +267,11 @@ namespace Password_Manager
             // Show the Login Form if we close the Accounts form.
             // Note(Pete): We need to cast Owner here in order to use our own Show() method.
             (Owner as MainForm).Show();
+        }
+
+        private void accountFlowPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
