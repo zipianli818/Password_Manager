@@ -79,6 +79,7 @@ namespace Password_Manager
 
             folderButton.Click += (sender, e) =>
             {
+                folderLabel.Text = folder.Name;
                 _activeFolder = folder;
                 _visibilityMode = VisibilityMode.Folder;
                 FilterAccountRows((account) =>
@@ -145,8 +146,8 @@ namespace Password_Manager
 
             accountRow.OnEdit += () =>
             {
-                var editAccountForm = new PasswordsForm(account);
-                editAccountForm.ShowDialog();
+                //var editAccountForm = new PasswordsForm(account);
+                //editAccountForm.ShowDialog();
             };
 
             if (accountFlowPanel.Controls.Count != 0)
@@ -225,6 +226,7 @@ namespace Password_Manager
 
         private void allAccountsButton_Click(object sender, EventArgs e)
         {
+            folderLabel.Text = "All";
             _visibilityMode = VisibilityMode.All;
             FilterAccountRows((account) => !account.Binned);
             FixAccountRowLayout();
@@ -232,6 +234,7 @@ namespace Password_Manager
 
         private void binButton_Click(object sender, EventArgs e)
         {
+            folderLabel.Text = "Bin";
             _visibilityMode = VisibilityMode.Binned;
             FilterAccountRows((account) => account.Binned);
             FixAccountRowLayout();
