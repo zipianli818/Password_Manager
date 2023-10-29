@@ -30,17 +30,24 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
-            label3 = new Label();
-            label2 = new Label();
+            panel4 = new Panel();
+            copiedToClipboardLabel = new Label();
+            usernameLabel = new Label();
+            siteNameLabel = new Label();
             panel2 = new Panel();
-            label1 = new Label();
+            deleteButton = new Button();
+            editButton = new Button();
+            copyButton = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
@@ -52,48 +59,106 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(label2);
+            panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(usernameLabel);
+            panel3.Controls.Add(siteNameLabel);
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(465, 49);
+            panel3.Size = new Size(547, 47);
             panel3.TabIndex = 2;
             // 
-            // label3
+            // panel4
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(25, 22);
-            label3.Name = "label3";
-            label3.Size = new Size(60, 15);
-            label3.TabIndex = 1;
-            label3.Text = "Username";
+            panel4.Controls.Add(copiedToClipboardLabel);
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(406, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(141, 47);
+            panel4.TabIndex = 3;
             // 
-            // label2
+            // copiedToClipboardLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(5, 5);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Site name";
+            copiedToClipboardLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            copiedToClipboardLabel.AutoSize = true;
+            copiedToClipboardLabel.BackColor = Color.White;
+            copiedToClipboardLabel.ForeColor = Color.RoyalBlue;
+            copiedToClipboardLabel.Location = new Point(3, 17);
+            copiedToClipboardLabel.Margin = new Padding(3, 25, 3, 25);
+            copiedToClipboardLabel.Name = "copiedToClipboardLabel";
+            copiedToClipboardLabel.Size = new Size(132, 15);
+            copiedToClipboardLabel.TabIndex = 2;
+            copiedToClipboardLabel.Text = "Copied to the clipboard";
+            copiedToClipboardLabel.Visible = false;
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Location = new Point(25, 22);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(60, 15);
+            usernameLabel.TabIndex = 1;
+            usernameLabel.Text = "Username";
+            // 
+            // siteNameLabel
+            // 
+            siteNameLabel.AutoSize = true;
+            siteNameLabel.Location = new Point(5, 5);
+            siteNameLabel.Name = "siteNameLabel";
+            siteNameLabel.Size = new Size(59, 15);
+            siteNameLabel.TabIndex = 0;
+            siteNameLabel.Text = "Site name";
             // 
             // panel2
             // 
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(deleteButton);
+            panel2.Controls.Add(editButton);
+            panel2.Controls.Add(copyButton);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(471, 0);
+            panel2.Location = new Point(553, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(243, 49);
+            panel2.Size = new Size(159, 47);
             panel2.TabIndex = 1;
             // 
-            // label1
+            // deleteButton
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(79, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            deleteButton.AutoSize = true;
+            deleteButton.FlatAppearance.BorderSize = 0;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.ForeColor = Color.Transparent;
+            deleteButton.Image = Properties.Resources.trash_bin;
+            deleteButton.Location = new Point(115, 0);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(32, 49);
+            deleteButton.TabIndex = 2;
+            deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // editButton
+            // 
+            editButton.AutoSize = true;
+            editButton.FlatAppearance.BorderSize = 0;
+            editButton.FlatStyle = FlatStyle.Flat;
+            editButton.ForeColor = Color.Transparent;
+            editButton.Image = Properties.Resources.edit;
+            editButton.Location = new Point(64, 0);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(32, 49);
+            editButton.TabIndex = 1;
+            editButton.UseVisualStyleBackColor = true;
+            // 
+            // copyButton
+            // 
+            copyButton.AutoSize = true;
+            copyButton.FlatAppearance.BorderSize = 0;
+            copyButton.FlatStyle = FlatStyle.Flat;
+            copyButton.ForeColor = Color.Transparent;
+            copyButton.Image = Properties.Resources.copy__3_;
+            copyButton.Location = new Point(17, 0);
+            copyButton.Name = "copyButton";
+            copyButton.Size = new Size(32, 49);
+            copyButton.TabIndex = 0;
+            copyButton.UseVisualStyleBackColor = true;
+            copyButton.Click += copyButton_Click;
             // 
             // AccountRow
             // 
@@ -106,6 +171,8 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -114,10 +181,14 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
         private Panel panel2;
         private Panel panel3;
-        private Label label2;
-        private Label label3;
+        private Label siteNameLabel;
+        private Label usernameLabel;
+        private Button copyButton;
+        private Label copiedToClipboardLabel;
+        private Button deleteButton;
+        private Button editButton;
+        private Panel panel4;
     }
 }
