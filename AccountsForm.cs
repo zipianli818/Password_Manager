@@ -32,10 +32,14 @@ namespace Password_Manager
             PopulateFolderPanel();
             PopulateAccountPanel();
 
-            // Note(Pete): This odd combination of commands will ensure the horizontal scroll 
+            // Note(Pete): This odd combination of commands will ensure the horizontal scroll doesn't appear for the corresponding panels
             folderFlowPanel.AutoScroll = false;
             folderFlowPanel.HorizontalScroll.Maximum = 0;
             folderFlowPanel.AutoScroll = true;
+
+            accountFlowPanel.AutoScroll = false;
+            accountFlowPanel.HorizontalScroll.Maximum = 0;
+            accountFlowPanel.AutoScroll = true;
         }
 
         /// <summary>
@@ -69,6 +73,18 @@ namespace Password_Manager
                 Height = 32,
                 Margin = new Padding(0),
                 Text = folder.Name
+            };
+
+            folderButton.Click += (sender, e) =>
+            {
+                _activeFolder = folder;
+                _visibilityMode = VisibilityMode.Folder;
+                FilterAccountRows((account) =>
+                {
+                    if (account.Folder is null) return false;
+                    return account.Folder.Id == _activeFolder.Id;
+                });
+                FixAccountRowLayout();
             };
 
             // Add context menu to button
@@ -110,10 +126,12 @@ namespace Password_Manager
 
         private void CreateAccountRow(Account account)
         {
-            var accountRow = new AccountRow(account);
-            accountRow.Margin = new Padding(0);
-            // Don't show the row if it's binned.
-            accountRow.Visible = !account.Binned;
+            var accountRow = new AccountRow(account)
+            {
+                Margin = new Padding(0),
+                // Don't show the row if it's binned.
+                Visible = !account.Binned
+            };
 
             accountRow.OnDelete += () =>
             {
