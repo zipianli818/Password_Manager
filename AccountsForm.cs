@@ -1,4 +1,5 @@
-﻿using Password_Manager.Controls;
+﻿using Microsoft.EntityFrameworkCore;
+using Password_Manager.Controls;
 using Password_Manager.Models;
 using System;
 using System.Collections.Generic;
@@ -142,26 +143,28 @@ namespace Password_Manager
                 account.Binned = true;
                 _dataContext.Accounts.Update(account);
                 _dataContext.SaveChanges();
+                FixAccountRowLayout();
             };
 
             accountRow.OnEdit += () =>
             {
-                var editAccountForm = new PasswordsForm(CurrentUser, account);
+                var editAccountForm = new PasswordsForm(CurrentUser, account, _dataContext);
                 editAccountForm.OnConfirm += (account) =>
                 {
                     _dataContext.Update(account);
+                    if (account.Folder is not null)
+                        _dataContext.Folders.Attach(account.Folder);
                     _dataContext.SaveChanges();
                     accountRow.Update();
                 };
                 editAccountForm.ShowDialog();
             };
 
-            if (accountFlowPanel.Controls.Count != 0)
-                accountRow.Dock = DockStyle.Top;
-
             accountFlowPanel.Controls.Add(accountRow);
-            if (_firstAccountRow == null)
+            if (_firstAccountRow == null && !account.Binned)
                 _firstAccountRow = accountRow;
+            else
+                accountRow.Dock = DockStyle.Top;
         }
 
         /// <summary>
@@ -173,6 +176,9 @@ namespace Password_Manager
             var first = true;
             foreach (AccountRow accountRow in accountFlowPanel.Controls)
             {
+                if (_visibilityMode != VisibilityMode.Binned && accountRow.Account.Binned)
+                    accountRow.Dock = DockStyle.None;
+
                 if (!accountRow.Visible) continue;
                 if (first)
                 {
@@ -220,9 +226,11 @@ namespace Password_Manager
 
         private void addAccountButton_Click(object sender, EventArgs e)
         {
-            var newAccountForm = new PasswordsForm(CurrentUser);
+            var newAccountForm = new PasswordsForm(CurrentUser, _dataContext);
             newAccountForm.OnConfirm += (account) => {
                 _dataContext.Accounts.Add(account);
+                if (account.Folder is not null)
+                    _dataContext.Folders.Attach(account.Folder);
                 _dataContext.SaveChanges();
                 CreateAccountRow(account);
                 FixAccountRowLayout();
@@ -276,11 +284,6 @@ namespace Password_Manager
             // Show the Login Form if we close the Accounts form.
             // Note(Pete): We need to cast Owner here in order to use our own Show() method.
             (Owner as MainForm).Show();
-        }
-
-        private void accountFlowPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

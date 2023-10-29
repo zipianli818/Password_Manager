@@ -194,7 +194,6 @@
             accountFlowPanel.Name = "accountFlowPanel";
             accountFlowPanel.Size = new Size(575, 334);
             accountFlowPanel.TabIndex = 1;
-            accountFlowPanel.Paint += accountFlowPanel_Paint;
             accountFlowPanel.Layout += accountFlowPanel_Layout;
             // 
             // panel4
