@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,10 @@ public partial class AccountRow : UserControl
 {
     public delegate void onDeleteHandler();
     public event onDeleteHandler OnDelete;
-    public Account Account { get; set; }
 
-    public AccountRow()
-    {
-        InitializeComponent();
-    }
+    public delegate void onEditHandler();
+    public event onDeleteHandler OnEdit;
+    public Account Account { get; set; }
 
     public AccountRow(Account account)
     {
@@ -49,5 +48,10 @@ public partial class AccountRow : UserControl
     private void deleteButton_Click(object sender, EventArgs e)
     {
         OnDelete.Invoke();
+    }
+
+    private void editButton_Click(object sender, EventArgs e)
+    {
+        OnEdit.Invoke();
     }
 }

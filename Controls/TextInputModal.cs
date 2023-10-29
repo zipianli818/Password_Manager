@@ -25,12 +25,12 @@ namespace Password_Manager.Controls
             modal.StartPosition = FormStartPosition.CenterParent;
 
             // Note(Pete): This is created as a delegate variable so that we can remove it from the FormClosed event when we press confirm.
-            FormClosedEventHandler formClosedEventHandler = (object? _, FormClosedEventArgs _) =>
+            FormClosedEventHandler formClosedEventHandler = (_, _) =>
             {
                 onCancel?.Invoke();
             };
 
-            modal.confirmButton.Click += (object? _, EventArgs _) =>
+            modal.confirmButton.Click += (_, _) =>
             {
                 // Don't allow empty or whitespace strings as folder names.
                 if (string.IsNullOrWhiteSpace(modal.nameTextBox.Text))
@@ -43,7 +43,7 @@ namespace Password_Manager.Controls
                 modal.Close();
             };
 
-            modal.cancelButton.Click += (object? _, EventArgs _) =>
+            modal.cancelButton.Click += (_, _) =>
             {
                 modal.Close();
             };

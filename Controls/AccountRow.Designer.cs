@@ -148,6 +148,7 @@
             editButton.Size = new Size(32, 49);
             editButton.TabIndex = 1;
             editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // copyButton
             // 

@@ -22,12 +22,13 @@ namespace Password_Manager
         private VisibilityMode _visibilityMode = VisibilityMode.All;
         private Folder? _activeFolder;
 
-        public AccountsForm()
+        public AccountsForm(User currentUser)
         {
             InitializeComponent();
 
-            // Debug
-            CurrentUser = _dataContext.Users.First();
+            CurrentUser = currentUser;
+            _dataContext.Users.Attach(currentUser);
+
 
             PopulateFolderPanel();
             PopulateAccountPanel();
@@ -141,6 +142,12 @@ namespace Password_Manager
                 _dataContext.SaveChanges();
             };
 
+            accountRow.OnEdit += () =>
+            {
+                var editAccountForm = new PasswordsForm(account);
+                editAccountForm.ShowDialog();
+            };
+
             if (accountFlowPanel.Controls.Count != 0)
                 accountRow.Dock = DockStyle.Top;
 
@@ -205,13 +212,14 @@ namespace Password_Manager
 
         private void addAccountButton_Click(object sender, EventArgs e)
         {
-            PasswordsForm.ShowModal("Add new Account", true, (Account newAccount) =>
-            {
-                _dataContext.Accounts.Add(newAccount);
-                _dataContext.SaveChanges();
+            //var newAccountForm = new PasswordsForm();
+            // newAccountForm.OnConfirm += (account) =>
+            //{
+            //    _dataContext.Accounts.Add(newAccount);
+            //    _dataContext.SaveChanges();
 
-                CreateAccountRow(newAccount);
-            });
+            //    CreateAccountRow(newAccount);
+            //});
         }
 
         private void allAccountsButton_Click(object sender, EventArgs e)
