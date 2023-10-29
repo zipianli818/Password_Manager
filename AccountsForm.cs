@@ -214,14 +214,9 @@ namespace Password_Manager
 
         private void addAccountButton_Click(object sender, EventArgs e)
         {
-            //var newAccountForm = new PasswordsForm();
-            // newAccountForm.OnConfirm += (account) =>
-            //{
-            //    _dataContext.Accounts.Add(newAccount);
-            //    _dataContext.SaveChanges();
-
-            //    CreateAccountRow(newAccount);
-            //});
+            var newAccountForm = new PasswordsForm(CurrentUser);
+            newAccountForm.OnConfirm += CreateAccountRow;
+            newAccountForm.ShowDialog();
         }
 
         private void allAccountsButton_Click(object sender, EventArgs e)

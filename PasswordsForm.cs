@@ -15,90 +15,63 @@ namespace Password_Manager
 {
     public partial class PasswordsForm : Form
     {
-        public PasswordPropertyTextAttribute CurrentPassword { get; set; }
+        public delegate void OnConfirmHandler(Account account);
+        public event OnConfirmHandler OnConfirm;
 
         private DataContext dataContext = new DataContext();
-        public PasswordsForm()
+        private User _currentUser;
+        private Account _currentAccount;
+        public PasswordsForm(User currentUser)
         {
             InitializeComponent();
-
+            _currentUser = currentUser;
+            dataContext.Users.Attach(currentUser);
+            _currentAccount = new Account();
         }
 
-        private void PasswordsForm_Load(object sender, EventArgs e)
+        public PasswordsForm(User currentUser, Account account)
         {
-
+            InitializeComponent();
+            accountNameTextBox.Text = account.Address;
+            usernameTextBox.Text = account.Username;
+            passwordTextBox.Text = account.Password;
+            _currentUser = currentUser;
+            dataContext.Users.Attach(currentUser);
+            _currentAccount = account;
         }
 
-        private void PasswordsForm_Load_1(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-
+            _currentAccount.Address = accountNameTextBox.Text;
+            _currentAccount.Username = usernameTextBox.Text;
+            _currentAccount.Password = passwordTextBox.Text;
+            _currentAccount.User = _currentUser;
+            // Let the AccountsForm handle what to do with the new/edited account.
+            OnConfirm.Invoke(_currentAccount);
+            Close();
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void allAccountsButton_Click(object sender, EventArgs e)
+        private void generatePasswordButton_Click(object sender, EventArgs e)
         {
-
+            // Generate a value for the passwordTextBox here.
+            // Use includeNumberCheckbox.Checked and includeSpecialCharsCheckbox.Checked to determine how to generate the password.
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
-        {
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    String passwordID = accountNameTextBox.Text;
+        //    String passwordName = usernameTextBox.Text;
+        //    String password = passwordTextBox.Text;
 
-        }
-
-        private void accountFlowPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            String passwordID = PasswordId.Text;
-            String passwordName = PasswordName.Text;
-            String password = RPassword.Text;
-
-            MessageBox.Show("Password ID: " + PasswordId + " " +
-                            "Password Name: " + PasswordName + " " +
-                            "Password: " + RPassword + " " +
-                            "have been saved!");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        //    MessageBox.Show("Password ID: " + accountNameTextBox + " " +
+        //                    "Password Name: " + usernameTextBox + " " +
+        //                    "Password: " + passwordTextBox + " " +
+        //                    "have been saved!");
+        //}
     }
 }

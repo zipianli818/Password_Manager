@@ -28,258 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
-            panel3 = new Panel();
-            foldersLabel = new Label();
-            folderFlowPanel = new FlowLayoutPanel();
-            addFolderButton = new Button();
-            panel1 = new Panel();
-            binButton = new Button();
-            allAccountsButton = new Button();
-            label1 = new Label();
             label4 = new Label();
             label5 = new Label();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            PasswordId = new TextBox();
-            PasswordName = new TextBox();
-            RPassword = new TextBox();
-            button3 = new Button();
+            includeNumberCheckbox = new CheckBox();
+            includeSpecialCharsCheckbox = new CheckBox();
+            accountNameTextBox = new TextBox();
+            usernameTextBox = new TextBox();
+            passwordTextBox = new TextBox();
+            saveButton = new Button();
             label6 = new Label();
-            button1 = new Button();
-            panel3.SuspendLayout();
-            panel1.SuspendLayout();
+            cancelButton = new Button();
+            generatePasswordButton = new Button();
             SuspendLayout();
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(38, 60);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(foldersLabel);
-            panel3.Controls.Add(folderFlowPanel);
-            panel3.Location = new Point(7, 154);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(222, 238);
-            panel3.TabIndex = 4;
-            // 
-            // foldersLabel
-            // 
-            foldersLabel.AutoSize = true;
-            foldersLabel.Location = new Point(8, 6);
-            foldersLabel.Name = "foldersLabel";
-            foldersLabel.Size = new Size(45, 15);
-            foldersLabel.TabIndex = 2;
-            foldersLabel.Text = "Folders";
-            // 
-            // folderFlowPanel
-            // 
-            folderFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            folderFlowPanel.AutoScroll = true;
-            folderFlowPanel.BackColor = Color.White;
-            folderFlowPanel.FlowDirection = FlowDirection.TopDown;
-            folderFlowPanel.Location = new Point(0, 24);
-            folderFlowPanel.Margin = new Padding(0, 3, 3, 3);
-            folderFlowPanel.Name = "folderFlowPanel";
-            folderFlowPanel.Size = new Size(222, 214);
-            folderFlowPanel.TabIndex = 3;
-            folderFlowPanel.WrapContents = false;
-            // 
-            // addFolderButton
-            // 
-            addFolderButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            addFolderButton.FlatStyle = FlatStyle.Flat;
-            addFolderButton.Location = new Point(8, 391);
-            addFolderButton.Name = "addFolderButton";
-            addFolderButton.Size = new Size(220, 32);
-            addFolderButton.TabIndex = 5;
-            addFolderButton.Text = "Add New Folder +";
-            addFolderButton.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(binButton);
-            panel1.Controls.Add(allAccountsButton);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(7, 25);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(222, 124);
-            panel1.TabIndex = 6;
-            // 
-            // binButton
-            // 
-            binButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            binButton.FlatStyle = FlatStyle.Flat;
-            binButton.Location = new Point(0, 92);
-            binButton.Name = "binButton";
-            binButton.Size = new Size(219, 32);
-            binButton.TabIndex = 2;
-            binButton.Text = "Bin";
-            binButton.UseVisualStyleBackColor = true;
-            // 
-            // allAccountsButton
-            // 
-            allAccountsButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            allAccountsButton.FlatStyle = FlatStyle.Flat;
-            allAccountsButton.Location = new Point(0, 63);
-            allAccountsButton.Name = "allAccountsButton";
-            allAccountsButton.Size = new Size(219, 32);
-            allAccountsButton.TabIndex = 1;
-            allAccountsButton.Text = "All";
-            allAccountsButton.UseVisualStyleBackColor = true;
-            allAccountsButton.Click += allAccountsButton_Click;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Consolas", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(202, 24);
-            label1.TabIndex = 0;
-            label1.Text = "Password Manager";
-            label1.Click += label1_Click_2;
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(265, 143);
+            label4.Location = new Point(176, 128);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(98, 15);
+            label4.Size = new Size(63, 15);
             label4.TabIndex = 8;
-            label4.Text = "Password Name: ";
+            label4.Text = "Username:";
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(269, 193);
+            label5.Location = new Point(180, 179);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(63, 15);
             label5.TabIndex = 9;
             label5.Text = "Password: ";
             // 
-            // checkBox1
+            // includeNumberCheckbox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(269, 255);
-            checkBox1.Margin = new Padding(2);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(117, 19);
-            checkBox1.TabIndex = 10;
-            checkBox1.Text = "Include Numbers";
-            checkBox1.UseVisualStyleBackColor = true;
+            includeNumberCheckbox.Anchor = AnchorStyles.None;
+            includeNumberCheckbox.AutoSize = true;
+            includeNumberCheckbox.Location = new Point(180, 238);
+            includeNumberCheckbox.Margin = new Padding(2);
+            includeNumberCheckbox.Name = "includeNumberCheckbox";
+            includeNumberCheckbox.Size = new Size(117, 19);
+            includeNumberCheckbox.TabIndex = 10;
+            includeNumberCheckbox.Text = "Include Numbers";
+            includeNumberCheckbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // includeSpecialCharsCheckbox
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(430, 255);
-            checkBox2.Margin = new Padding(2);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(164, 19);
-            checkBox2.TabIndex = 11;
-            checkBox2.Text = "Include Special Characters";
-            checkBox2.UseVisualStyleBackColor = true;
+            includeSpecialCharsCheckbox.Anchor = AnchorStyles.None;
+            includeSpecialCharsCheckbox.AutoSize = true;
+            includeSpecialCharsCheckbox.Location = new Point(341, 238);
+            includeSpecialCharsCheckbox.Margin = new Padding(2);
+            includeSpecialCharsCheckbox.Name = "includeSpecialCharsCheckbox";
+            includeSpecialCharsCheckbox.Size = new Size(164, 19);
+            includeSpecialCharsCheckbox.TabIndex = 11;
+            includeSpecialCharsCheckbox.Text = "Include Special Characters";
+            includeSpecialCharsCheckbox.UseVisualStyleBackColor = true;
             // 
-            // PasswordId
+            // accountNameTextBox
             // 
-            PasswordId.Location = new Point(269, 118);
-            PasswordId.Margin = new Padding(2);
-            PasswordId.Name = "PasswordId";
-            PasswordId.Size = new Size(159, 23);
-            PasswordId.TabIndex = 12;
-            PasswordId.TextChanged += textBox1_TextChanged_1;
+            accountNameTextBox.Anchor = AnchorStyles.None;
+            accountNameTextBox.Location = new Point(180, 101);
+            accountNameTextBox.Margin = new Padding(2);
+            accountNameTextBox.Name = "accountNameTextBox";
+            accountNameTextBox.Size = new Size(202, 23);
+            accountNameTextBox.TabIndex = 12;
             // 
-            // PasswordName
+            // usernameTextBox
             // 
-            PasswordName.Location = new Point(269, 167);
-            PasswordName.Margin = new Padding(2);
-            PasswordName.Name = "PasswordName";
-            PasswordName.Size = new Size(159, 23);
-            PasswordName.TabIndex = 13;
+            usernameTextBox.Anchor = AnchorStyles.None;
+            usernameTextBox.Location = new Point(180, 150);
+            usernameTextBox.Margin = new Padding(2);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.Size = new Size(202, 23);
+            usernameTextBox.TabIndex = 13;
             // 
-            // RPassword
+            // passwordTextBox
             // 
-            RPassword.Location = new Point(269, 216);
-            RPassword.Margin = new Padding(2);
-            RPassword.Name = "RPassword";
-            RPassword.Size = new Size(159, 23);
-            RPassword.TabIndex = 14;
-            RPassword.TextChanged += RPassword_TextChanged;
+            passwordTextBox.Anchor = AnchorStyles.None;
+            passwordTextBox.Location = new Point(180, 199);
+            passwordTextBox.Margin = new Padding(2);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(202, 23);
+            passwordTextBox.TabIndex = 14;
             // 
-            // button3
+            // saveButton
             // 
-            button3.Location = new Point(522, 319);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(78, 20);
-            button3.TabIndex = 17;
-            button3.Text = "Save";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            saveButton.Anchor = AnchorStyles.None;
+            saveButton.Location = new Point(287, 292);
+            saveButton.Margin = new Padding(2);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(78, 20);
+            saveButton.TabIndex = 17;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = true;
+            saveButton.Click += saveButton_Click;
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Location = new Point(270, 96);
+            label6.Location = new Point(181, 79);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(77, 15);
+            label6.Size = new Size(143, 15);
             label6.TabIndex = 18;
-            label6.Text = "Password ID: ";
-            label6.Click += label6_Click_1;
+            label6.Text = "Account Name / Website:";
             // 
-            // button1
+            // cancelButton
             // 
-            button1.Location = new Point(410, 319);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 20);
-            button1.TabIndex = 19;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            cancelButton.Anchor = AnchorStyles.None;
+            cancelButton.Location = new Point(175, 292);
+            cancelButton.Margin = new Padding(2);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(78, 20);
+            cancelButton.TabIndex = 19;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
+            // 
+            // generatePasswordButton
+            // 
+            generatePasswordButton.Anchor = AnchorStyles.None;
+            generatePasswordButton.Location = new Point(404, 202);
+            generatePasswordButton.Margin = new Padding(2);
+            generatePasswordButton.Name = "generatePasswordButton";
+            generatePasswordButton.Size = new Size(120, 20);
+            generatePasswordButton.TabIndex = 20;
+            generatePasswordButton.Text = "Generate Password";
+            generatePasswordButton.UseVisualStyleBackColor = true;
+            generatePasswordButton.Click += generatePasswordButton_Click;
             // 
             // PasswordsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 443);
-            Controls.Add(button1);
+            ClientSize = new Size(703, 393);
+            Controls.Add(generatePasswordButton);
+            Controls.Add(cancelButton);
             Controls.Add(label6);
-            Controls.Add(button3);
-            Controls.Add(RPassword);
-            Controls.Add(PasswordName);
-            Controls.Add(PasswordId);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
+            Controls.Add(saveButton);
+            Controls.Add(passwordTextBox);
+            Controls.Add(usernameTextBox);
+            Controls.Add(accountNameTextBox);
+            Controls.Add(includeSpecialCharsCheckbox);
+            Controls.Add(includeNumberCheckbox);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(panel1);
-            Controls.Add(addFolderButton);
-            Controls.Add(panel3);
-            Controls.Add(label2);
             Margin = new Padding(2);
             Name = "PasswordsForm";
             Text = "Password Manager";
-            Load += PasswordsForm_Load_1;
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,14 +195,15 @@
         private Label label1;
         private Label label4;
         private Label label5;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private TextBox PasswordId;
-        private TextBox PasswordName;
-        private TextBox RPassword;
-        private Button button3;
+        private CheckBox includeNumberCheckbox;
+        private CheckBox includeSpecialCharsCheckbox;
+        private TextBox accountNameTextBox;
+        private TextBox usernameTextBox;
+        private TextBox passwordTextBox;
+        private Button saveButton;
         private FlowLayoutPanel folderFlowPanel;
         private Label label6;
-        private Button button1;
+        private Button cancelButton;
+        private Button generatePasswordButton;
     }
 }
