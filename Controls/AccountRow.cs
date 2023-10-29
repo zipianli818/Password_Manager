@@ -29,6 +29,12 @@ public partial class AccountRow : UserControl
         siteNameLabel.Text = account.Address;
     }
 
+    public void Update()
+    {
+        usernameLabel.Text = Account.Username;
+        siteNameLabel.Text = Account.Address;
+    }
+
     private void copyButton_Click(object sender, EventArgs e)
     {
         Clipboard.SetText(Account.Password);

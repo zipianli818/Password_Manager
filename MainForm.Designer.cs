@@ -157,7 +157,6 @@ partial class MainForm
         Margin = new Padding(4, 5, 4, 5);
         Name = "MainForm";
         Text = "Password Manager";
-        Load += MainForm_Load;
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
         ResumeLayout(false);

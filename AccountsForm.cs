@@ -146,8 +146,14 @@ namespace Password_Manager
 
             accountRow.OnEdit += () =>
             {
-                //var editAccountForm = new PasswordsForm(account);
-                //editAccountForm.ShowDialog();
+                var editAccountForm = new PasswordsForm(CurrentUser, account);
+                editAccountForm.OnConfirm += (account) =>
+                {
+                    _dataContext.Update(account);
+                    _dataContext.SaveChanges();
+                    accountRow.Update();
+                };
+                editAccountForm.ShowDialog();
             };
 
             if (accountFlowPanel.Controls.Count != 0)
@@ -219,6 +225,7 @@ namespace Password_Manager
                 _dataContext.Accounts.Add(account);
                 _dataContext.SaveChanges();
                 CreateAccountRow(account);
+                FixAccountRowLayout();
             };
             newAccountForm.ShowDialog();
         }
