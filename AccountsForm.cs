@@ -27,6 +27,7 @@ namespace Password_Manager
             InitializeComponent();
 
             CurrentUser = currentUser;
+            // Note(Pete): We have to tell EF to keep track of the current user because we've initialised a new DataContext for this Form.
             _dataContext.Users.Attach(currentUser);
 
 
