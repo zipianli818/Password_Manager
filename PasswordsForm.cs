@@ -84,7 +84,7 @@ namespace Password_Manager
             // Set the generated password in the passwordTextBox.
             passwordTextBox.Text = password.ToString();
 
-            MessageBox.Show("Password: " + passwordTextBox + " " +
+            MessageBox.Show("Password: " + password + " " +
                             "have been generated!");
 
         }
